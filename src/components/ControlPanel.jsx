@@ -1,12 +1,15 @@
+
 import React, { useState } from 'react';
+import './ControlPanel.css';
+import './resultDisplay.css';
 
 const ControlPanel = ({ onRun }) => {
-  const [mapInput, setMapInput] = useState("E,E\nA,C");
-  const [position, setPosition] = useState("0,0");
-  const [direction, setDirection] = useState("N");
-  const [maxPower, setMaxPower] = useState(5);
-  const [chargeRate, setChargeRate] = useState(1);
-  const [commands, setCommands] = useState("MRMPP");
+  const [mapInput, setMapInput] = useState("");
+  const [position, setPosition] = useState("");
+  const [direction, setDirection] = useState("");
+  const [maxPower, setMaxPower] = useState("");
+  const [chargeRate, setChargeRate] = useState("");
+  const [commands, setCommands] = useState("");
 
   const parseMap = (text) => {
     return text.trim().split("\n").map(row => row.split(","));
@@ -29,34 +32,69 @@ const ControlPanel = ({ onRun }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-100 p-4 rounded mb-4 space-y-2">
-      <div>
-        <label className="block font-semibold">Plateau Map (rows of comma-separated values):</label>
-        <textarea value={mapInput} onChange={(e) => setMapInput(e.target.value)} rows={3} className="w-full border p-1" />
+    <form onSubmit={handleSubmit} className="control-panel">
+      <h2 className="panel-heading"> Mars Rover Mission Control</h2>
+
+      <div className="form-group">
+        <label> Plateau Map (comma-separated, bottom to top):</label>
+        <textarea
+          value={mapInput}
+          onChange={(e) => setMapInput(e.target.value)}
+          rows={3}
+          className="input-box textarea"
+        />
       </div>
-      <div>
-        <label className="block font-semibold">Initial Position (x,y):</label>
-        <input value={position} onChange={(e) => setPosition(e.target.value)} className="w-full border p-1" />
+
+      <div className="form-row">
+        <div className="form-group">
+          <label> Initial Position (x,y):</label>
+          <input
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+            className="input-box"
+          />
+        </div>
+        <div className="form-group">
+          <label> Direction (N/E/S/W):</label>
+          <input
+            value={direction}
+            onChange={(e) => setDirection(e.target.value)}
+            className="input-box"
+          />
+        </div>
       </div>
-      <div>
-        <label className="block font-semibold">Direction (N, E, S, W):</label>
-        <input value={direction} onChange={(e) => setDirection(e.target.value)} className="w-full border p-1" />
+
+      <div className="form-row">
+        <div className="form-group">
+          <label> Max Power:</label>
+          <input
+            type="number"
+            value={maxPower}
+            onChange={(e) => setMaxPower(e.target.value)}
+            className="input-box"
+          />
+        </div>
+        <div className="form-group">
+          <label> Charging Rate:</label>
+          <input
+            type="number"
+            value={chargeRate}
+            onChange={(e) => setChargeRate(e.target.value)}
+            className="input-box"
+          />
+        </div>
       </div>
-      <div>
-        <label className="block font-semibold">Max Power:</label>
-        <input type="number" value={maxPower} onChange={(e) => setMaxPower(e.target.value)} className="w-full border p-1" />
+
+      <div className="form-group">
+        <label>Command Sequence:</label>
+        <input
+          value={commands}
+          onChange={(e) => setCommands(e.target.value)}
+          className="input-box"
+        />
       </div>
-      <div>
-        <label className="block font-semibold">Charging Rate:</label>
-        <input type="number" value={chargeRate} onChange={(e) => setChargeRate(e.target.value)} className="w-full border p-1" />
-      </div>
-      <div>
-        <label className="block font-semibold">Command Sequence:</label>
-        <input value={commands} onChange={(e) => setCommands(e.target.value)} className="w-full border p-1" />
-      </div>
-      <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-        Run Mission
-      </button>
+
+      <button type="submit" className="submit-button">Run Mission 🚀</button>
     </form>
   );
 };

@@ -1,0 +1,40 @@
+.result-display {
+  background: #f9fafb;
+  border: 1px solid #d1d5db;
+  padding: 24px;
+  border-radius: 12px;
+  margin-top: 24px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.result-heading {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+}
+
+.result-display p {
+  margin: 6px 0;
+  font-size: 1rem;
+  color: #374151;
+}
+
+.status-success {
+  color: green;
+  font-weight: bold;
+}
+
+.status-failed {
+  color: red;
+  font-weight: bold;
+}
+
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 2rem;
+}

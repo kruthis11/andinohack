@@ -1,7 +1,7 @@
 const GridDisplay = ({ map, rover }) => {
   return (
     <div className="mt-4">
-      <h2 className="font-bold mb-2">🗺️ Plateau Map</h2>
+      <h2 className="font-bold mb-2">Plateau Map</h2>
       <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${map[0].length}, 40px)` }}>
         {map
           .slice()

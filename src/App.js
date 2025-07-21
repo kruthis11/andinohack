@@ -15,13 +15,14 @@ function App() {
   };
 
   return (
-    <div className="p-6 font-sans max-w-screen-md mx-auto">
-      <h1 className="text-3xl font-bold mb-4">🚀 Mars Rover Pathfinder</h1>
-      <ControlPanel onRun={handleRunSimulation} />
-      {input && <GridDisplay map={input.plateau_map} rover={result?.final_state} />}
-      {result && <ResultDisplay result={result} />}
-    </div>
-  );
+  <div className="max-w-3xl mx-auto">
+    <h1> Mars Rover Pathfinder</h1>
+    <ControlPanel onRun={handleRunSimulation} />
+    {input && <GridDisplay map={input.plateau_map} rover={result?.final_state} />}
+    {result && <ResultDisplay result={result} />}
+  </div>
+);
+
 }
 
 export default App;

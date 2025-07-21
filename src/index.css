@@ -1,5 +1,7 @@
 body {
-  font-family: sans-serif;
-  background-color: #f3f4f6;
-  padding: 20px;
+  @apply bg-gradient-to-br from-blue-50 to-white min-h-screen p-6;
+}
+
+h1 {
+  @apply text-4xl font-bold text-center text-blue-900 mb-8;
 }
